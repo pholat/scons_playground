@@ -1,0 +1,4 @@
+#!python
+print("Compiling library")
+env2 = Environment()
+env2.StaticLibrary(target='lib',source='lib.cpp')

@@ -1,0 +1,7 @@
+#!python
+Import('text')
+Import('env')
+Import('libpath')
+print('UWAGA:', text )
+staticLink = [libpath+'lib.a']
+env.Program( 'hello', Glob('*.cpp') + staticLink )

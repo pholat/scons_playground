@@ -1,0 +1,12 @@
+This tiny project is meant as training to SCons.
+
+SCons can be used as multiplatfom build script - as it's essentially python. Because of that,the fact that it's fast to learn, and finally the fact that it was extremally hard for me to configure cmake to work with other than standard compilers I chose it as my main script to build C/C++ projects when I can not od do not want to use automaticly generated makefiles.
+
+Worth noticing:
+-> Before I got to know that SConscript is similar to cmakefiles called by main cmakefile it was hard for me to build anything more complicated.
+-> When I needed to load Windows wariables (I prefer to load all at once), scons automaticly loads 'Windows style' which means / instead - which can be terribly irritating. My solution is to work it around by SCons variables, gcc like substitutions, etc.
+-> There are neat pearl scripts for error / warning colouring, but I want to have as much as I can in one place - thats why I prefer to call scons in subprocess. With that one can also grab all logs in well mannered way to file, with some preprocessing available.
+-> It's worth to remember that SCons is python - so you can load python modules, it runs in python - so you need to remember if you use python2 or python3 by default. For me bpython fought with colorama f.e.
+-> When I wanted to name libraries after folders automaticly getting direction from __file__ will not give you your desired location most of times. Solution can be found on stack overflow here:
+http://stackoverflow.com/questions/9806573/does-scons-know-in-which-directory-a-sconscript-file-resides
+SConscript direction is: Dir('.').srcnode().abspath , to get only last folder use rfind("/")

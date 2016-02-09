@@ -1,0 +1,4 @@
+#!python
+text="lubie placki"
+print('Wyeksportowano:', text)
+Export('text')
